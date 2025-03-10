@@ -8,7 +8,7 @@ pub fn execute(sub_m: &ArgMatches) {
 
     match fs::read_to_string(filename) {
         Ok(content) => {
-            let mut lines: Vec<&str> = content.lines().collect();
+            let mut lines: Vec<&str> = content.split_whitespace().collect();
 
             lines.sort();
 
