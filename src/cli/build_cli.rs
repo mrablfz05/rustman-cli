@@ -1,4 +1,4 @@
-use clap::{Arg, Command};
+use clap::{Arg, ArgAction, Command};
 
 pub fn build_cli() -> Command {
     Command::new("RustMan")
@@ -10,6 +10,7 @@ pub fn build_cli() -> Command {
         .subcommand(rename_command())
         .subcommand(list_command())
         .subcommand(copy_command())
+        .subcommand(sort_command())
 }
 
 fn create_command() -> Command {
@@ -60,5 +61,23 @@ fn copy_command() -> Command {
                 .help("Pase to destination")
                 .required(true)
                 .index(2),
+        )
+}
+
+fn sort_command() -> Command {
+    Command::new("sort")
+        .about("Sort file")
+        .arg(
+            Arg::new("filename")
+                .help("Sort ascending file")
+                .required(true)
+                .index(1),
+        )
+        .arg(
+            Arg::new("reverse")
+                .short('r')
+                .long("reverse")
+                .help("Sort in reverse order")
+                .action(ArgAction::SetTrue),
         )
 }
