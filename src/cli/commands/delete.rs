@@ -1,6 +1,6 @@
+use clap::ArgMatches;
 use console::style;
 use std::fs;
-use clap::ArgMatches;
 
 pub fn execute(sub_m: &ArgMatches) {
     let filename = sub_m.get_one::<String>("filename").unwrap();
