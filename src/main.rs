@@ -1,5 +1,5 @@
-mod file_system;
+mod cli;
 fn main() {
     println!("Hello, world!");
-    file_system::fs();
+    cli::fs();
 }
