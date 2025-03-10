@@ -9,6 +9,7 @@ pub fn build_cli() -> Command {
         .subcommand(delete_command())
         .subcommand(rename_command())
         .subcommand(list_command())
+        .subcommand(copy_command())
 }
 
 fn create_command() -> Command {
@@ -48,4 +49,16 @@ fn rename_command() -> Command {
 
 fn list_command() -> Command {
     Command::new("list").about("List directory files")
+}
+
+fn copy_command() -> Command {
+    Command::new("copy")
+        .about("Copy a file to a destination")
+        .arg(Arg::new("source").help("Copy file").required(true).index(1))
+        .arg(
+            Arg::new("destination")
+                .help("Pase to destination")
+                .required(true)
+                .index(2),
+        )
 }

@@ -1,6 +1,6 @@
 use build_cli::build_cli;
 use clap::ArgMatches;
-use commands::{create, delete, list, rename};
+use commands::{copy, create, delete, list, rename};
 use console::style;
 
 mod build_cli;
@@ -16,6 +16,7 @@ pub fn fs() {
             Some(("delete", sub_m)) => delete::execute(sub_m),
             Some(("rename", sub_m)) => rename::execute(sub_m),
             Some(("list", sub_m)) => list::execute(sub_m),
+            Some(("copy", sub_m)) => copy::execute(sub_m),
 
             Some((unknown, _)) => {
                 println!(
