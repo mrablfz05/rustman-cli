@@ -17,7 +17,6 @@ pub fn execute(sub_m: &ArgMatches) {
             }
 
             let sorted_content = lines.join("\n");
-            println!("{}", sorted_content);
             println!("{}", style(format!("Sorted content:\n{}", sorted_content)).cyan());
         }
         Err(e) => {
