@@ -20,6 +20,22 @@ pub fn execute(sub_m: &ArgMatches) {
             "{}",
             style(format!("{} copied to {}", source, destination)).green()
         ),
-        Err(e) => println!("{}", style(format!("Copy failed: {}", e)).red()),
+        Err(e) => match e.kind() {
+            std::io::ErrorKind::PermissionDenied => {
+                eprintln!(
+                    "{}",
+                    style("Permission denied. Try running as admin!").red()
+                );
+            }
+            std::io::ErrorKind::NotFound => {
+                eprintln!("{}", style("File not found! Check the source path.").red());
+            }
+            std::io::ErrorKind::AlreadyExists => {
+                eprintln!("{}", style("Destination file already exists.").yellow());
+            }
+            _ => {
+                eprintln!("{}", style(format!("Copy failed: {}", e)).red());
+            }
+        },
     }
 }
