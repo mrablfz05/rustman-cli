@@ -13,6 +13,7 @@ pub fn build_cli() -> Command {
         .subcommand(sort_command())
         .subcommand(curl_command())
         .subcommand(mv_command())
+        .subcommand(find_command())
 }
 
 fn create_command() -> Command {
@@ -108,4 +109,11 @@ pub fn mv_command() -> Command {
                 .required(true)
                 .index(2),
         )
+}
+
+fn find_command() -> Command {
+    Command::new("find")
+        .about("Search for a file by name in a directory")
+        .arg(Arg::new("directory").help("Directory to search in").required(true).index(1))
+        .arg(Arg::new("filename").help("Filename to search for").required(true).index(2))
 }

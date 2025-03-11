@@ -6,3 +6,4 @@ pub mod list;
 pub mod rename;
 pub mod sort;
 pub mod mv;
+pub mod find;
