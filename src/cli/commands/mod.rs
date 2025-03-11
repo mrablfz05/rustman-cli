@@ -1,5 +1,6 @@
 pub mod copy;
 pub mod create;
+pub mod curl;
 pub mod delete;
 pub mod list;
 pub mod rename;

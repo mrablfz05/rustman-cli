@@ -11,6 +11,7 @@ pub fn build_cli() -> Command {
         .subcommand(list_command())
         .subcommand(copy_command())
         .subcommand(sort_command())
+        .subcommand(curl_command())
 }
 
 fn create_command() -> Command {
@@ -80,4 +81,13 @@ fn sort_command() -> Command {
                 .help("Sort in reverse order")
                 .action(ArgAction::SetTrue),
         )
+}
+
+fn curl_command() -> Command {
+    Command::new("curl").about("Fetch data from url").arg(
+        Arg::new("url")
+            .help("Fetch data from a url")
+            .required(true)
+            .index(1),
+    )
 }

@@ -1,5 +1,9 @@
+use tokio;
+
 mod cli;
-fn main() {
+
+#[tokio::main]
+async fn main() {
     println!("******RustMan******");
-    cli::fs();
+    cli::fs().await;
 }
