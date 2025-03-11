@@ -17,7 +17,10 @@ pub fn execute(sub_m: &ArgMatches) {
             }
 
             let sorted_content = lines.join("\n");
-            println!("{}", style(format!("Sorted content:\n{}", sorted_content)).cyan());
+            println!(
+                "{}",
+                style(format!("Sorted content:\n{}", sorted_content)).cyan()
+            );
         }
         Err(e) => {
             eprintln!("Error reading file '{}': {}", filename, e);

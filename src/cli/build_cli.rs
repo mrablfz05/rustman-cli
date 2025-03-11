@@ -11,6 +11,9 @@ pub fn build_cli() -> Command {
         .subcommand(list_command())
         .subcommand(copy_command())
         .subcommand(sort_command())
+        .subcommand(curl_command())
+        .subcommand(mv_command())
+        .subcommand(find_command())
 }
 
 fn create_command() -> Command {
@@ -80,4 +83,37 @@ fn sort_command() -> Command {
                 .help("Sort in reverse order")
                 .action(ArgAction::SetTrue),
         )
+}
+
+fn curl_command() -> Command {
+    Command::new("curl").about("Fetch data from url").arg(
+        Arg::new("url")
+            .help("Fetch data from a url")
+            .required(true)
+            .index(1),
+    )
+}
+
+pub fn mv_command() -> Command {
+    Command::new("mv")
+        .about("Move a file to a destination")
+        .arg(
+            Arg::new("source")
+                .help("The source file to move")
+                .required(true)
+                .index(1),
+        )
+        .arg(
+            Arg::new("destination")
+                .help("The destination path")
+                .required(true)
+                .index(2),
+        )
+}
+
+fn find_command() -> Command {
+    Command::new("find")
+        .about("Search for a file by name in a directory")
+        .arg(Arg::new("directory").help("Directory to search in").required(true).index(1))
+        .arg(Arg::new("filename").help("Filename to search for").required(true).index(2))
 }

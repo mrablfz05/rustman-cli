@@ -1,5 +1,10 @@
+use tokio;
+use console::style;
+
 mod cli;
-fn main() {
-    println!("******RustMan******");
-    cli::fs();
+
+#[tokio::main]
+async fn main() {
+    println!("{}", style(format!("******RustMan******")).black().bold());
+    cli::fs().await;
 }
