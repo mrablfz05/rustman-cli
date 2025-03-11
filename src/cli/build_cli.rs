@@ -12,6 +12,7 @@ pub fn build_cli() -> Command {
         .subcommand(copy_command())
         .subcommand(sort_command())
         .subcommand(curl_command())
+        .subcommand(mv_command())
 }
 
 fn create_command() -> Command {
@@ -90,4 +91,21 @@ fn curl_command() -> Command {
             .required(true)
             .index(1),
     )
+}
+
+pub fn mv_command() -> Command {
+    Command::new("mv")
+        .about("Move a file to a destination")
+        .arg(
+            Arg::new("source")
+                .help("The source file to move")
+                .required(true)
+                .index(1),
+        )
+        .arg(
+            Arg::new("destination")
+                .help("The destination path")
+                .required(true)
+                .index(2),
+        )
 }
