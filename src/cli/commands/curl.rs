@@ -2,6 +2,8 @@ use clap::ArgMatches;
 use console::style;
 use reqwest;
 
+use crate::utils::progress;
+
 pub async fn execute(sub_m: &ArgMatches) {
     let url = sub_m.get_one::<String>("url").unwrap();
 

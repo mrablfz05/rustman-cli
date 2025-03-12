@@ -2,6 +2,7 @@ use console::style;
 use tokio;
 
 mod cli;
+mod utils;
 
 #[tokio::main]
 async fn main() {
