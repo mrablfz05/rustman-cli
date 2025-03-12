@@ -1,10 +1,8 @@
 use clap::ArgMatches;
-// use std::path;
 use console::style;
 use std::fs;
 
 pub fn execute(sub_m: &ArgMatches) {
-
     let dir = sub_m.get_one::<String>("directory").unwrap();
     let filename = sub_m.get_one::<String>("filename").unwrap();
 

@@ -114,6 +114,16 @@ pub fn mv_command() -> Command {
 fn find_command() -> Command {
     Command::new("find")
         .about("Search for a file by name in a directory")
-        .arg(Arg::new("directory").help("Directory to search in").required(true).index(1))
-        .arg(Arg::new("filename").help("Filename to search for").required(true).index(2))
+        .arg(
+            Arg::new("directory")
+                .help("Directory to search in")
+                .required(true)
+                .index(1),
+        )
+        .arg(
+            Arg::new("filename")
+                .help("Filename to search for")
+                .required(true)
+                .index(2),
+        )
 }

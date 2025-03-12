@@ -1,5 +1,5 @@
-use tokio;
 use console::style;
+use tokio;
 
 mod cli;
 
