@@ -1,9 +1,10 @@
+pub mod cat;
 pub mod copy;
 pub mod create;
 pub mod curl;
 pub mod delete;
+pub mod find;
 pub mod list;
+pub mod mv;
 pub mod rename;
 pub mod sort;
-pub mod mv;
-pub mod find;

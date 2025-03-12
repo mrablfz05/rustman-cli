@@ -6,6 +6,7 @@ edition = "2024"
 [dependencies]
 clap = "4.5.31"
 console = "0.15.11"
+indicatif = "0.17.11"
 reqwest = "0.12.12"
+tokio-stream = "0.1"
 tokio = { version = "1", features = ["full"] }
-walkdir = "2.5.0"

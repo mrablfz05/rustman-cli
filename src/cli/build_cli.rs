@@ -2,7 +2,7 @@ use clap::{Arg, ArgAction, Command};
 
 pub fn build_cli() -> Command {
     Command::new("RustMan")
-        .version("1.0")
+        .version("2.1")
         .author("mrablfz")
         .about("Rust file-based CLI tool")
         .subcommand(create_command())
@@ -14,6 +14,7 @@ pub fn build_cli() -> Command {
         .subcommand(curl_command())
         .subcommand(mv_command())
         .subcommand(find_command())
+        .subcommand(cat_command())
 }
 
 fn create_command() -> Command {
@@ -114,6 +115,25 @@ pub fn mv_command() -> Command {
 fn find_command() -> Command {
     Command::new("find")
         .about("Search for a file by name in a directory")
-        .arg(Arg::new("directory").help("Directory to search in").required(true).index(1))
-        .arg(Arg::new("filename").help("Filename to search for").required(true).index(2))
+        .arg(
+            Arg::new("directory")
+                .help("Directory to search in")
+                .required(true)
+                .index(1),
+        )
+        .arg(
+            Arg::new("filename")
+                .help("Filename to search for")
+                .required(true)
+                .index(2),
+        )
+}
+
+fn cat_command() -> Command {
+    Command::new("cat").about("Show contents of a file").arg(
+        Arg::new("filename")
+            .help("Filename to show contents of them")
+            .required(true)
+            .index(1),
+    )
 }
