@@ -8,4 +8,3 @@ clap = "4.5.31"
 console = "0.15.11"
 reqwest = "0.12.12"
 tokio = { version = "1", features = ["full"] }
-walkdir = "2.5.0"
