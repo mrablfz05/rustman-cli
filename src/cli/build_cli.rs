@@ -2,7 +2,7 @@ use clap::{Arg, ArgAction, Command};
 
 pub fn build_cli() -> Command {
     Command::new("RustMan")
-        .version("1.0")
+        .version("2.1")
         .author("mrablfz")
         .about("Rust file-based CLI tool")
         .subcommand(create_command())
@@ -130,12 +130,10 @@ fn find_command() -> Command {
 }
 
 fn cat_command() -> Command {
-    Command::new("cat")
-        .about("Show contents of a file")
-        .arg(
-            Arg::new("filename")
-                .help("Filename to show contents of them")
-                .required(true)
-                .index(1),
-        )
+    Command::new("cat").about("Show contents of a file").arg(
+        Arg::new("filename")
+            .help("Filename to show contents of them")
+            .required(true)
+            .index(1),
+    )
 }

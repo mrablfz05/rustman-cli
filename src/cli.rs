@@ -1,6 +1,6 @@
 use build_cli::build_cli;
 use clap::ArgMatches;
-use commands::{copy, create, curl, delete, find, list, mv, rename, sort, cat};
+use commands::{cat, copy, create, curl, delete, find, list, mv, rename, sort};
 use console::style;
 
 mod build_cli;

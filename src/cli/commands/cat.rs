@@ -14,6 +14,13 @@ pub fn execute(sub_m: &ArgMatches) {
                 }
             }
         }
-        Err(e) => println!("{}", style(format!("failed to show contents of {} because: {}", filename, e)).red())
+        Err(e) => println!(
+            "{}",
+            style(format!(
+                "failed to show contents of {} because: {}",
+                filename, e
+            ))
+            .red()
+        ),
     }
 }

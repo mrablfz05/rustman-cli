@@ -1,3 +1,4 @@
+pub mod cat;
 pub mod copy;
 pub mod create;
 pub mod curl;
@@ -7,4 +8,3 @@ pub mod list;
 pub mod mv;
 pub mod rename;
 pub mod sort;
-pub mod cat;
