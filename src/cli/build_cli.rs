@@ -14,6 +14,7 @@ pub fn build_cli() -> Command {
         .subcommand(curl_command())
         .subcommand(mv_command())
         .subcommand(find_command())
+        .subcommand(cat_command())
 }
 
 fn create_command() -> Command {
@@ -125,5 +126,16 @@ fn find_command() -> Command {
                 .help("Filename to search for")
                 .required(true)
                 .index(2),
+        )
+}
+
+fn cat_command() -> Command {
+    Command::new("cat")
+        .about("Show contents of a file")
+        .arg(
+            Arg::new("filename")
+                .help("Filename to show contents of them")
+                .required(true)
+                .index(1),
         )
 }

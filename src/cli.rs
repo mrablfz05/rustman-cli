@@ -1,6 +1,6 @@
 use build_cli::build_cli;
 use clap::ArgMatches;
-use commands::{copy, create, curl, delete, find, list, mv, rename, sort};
+use commands::{copy, create, curl, delete, find, list, mv, rename, sort, cat};
 use console::style;
 
 mod build_cli;
@@ -21,6 +21,7 @@ pub async fn fs() {
             Some(("curl", sub_m)) => curl::execute(sub_m).await,
             Some(("mv", sub_m)) => mv::execute(sub_m),
             Some(("find", sub_m)) => find::execute(sub_m),
+            Some(("cat", sub_m)) => cat::execute(sub_m),
 
             Some((unknown, _)) => {
                 println!(
